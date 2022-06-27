@@ -18,17 +18,13 @@ interface props {
 export const ShopProvider = ({ children }: props) => {
 
 
-    const [state, dispatch] = useReducer(shopReducer, INITIAL_STATE)
 
 
-
-return(
-    <ShopContext.Provider value={{
-
-    }}>
-        { children }
-    </ShopContext.Provider>
-)
+// return(
+//     // <ShopContext.Provider value={{}} >
+//     //     { children }
+//     // </ShopContext.Provider>
+// )
 
 
 }

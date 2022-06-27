@@ -1,14 +1,14 @@
 export interface IProduct {
     _id: number;
     description: string;
-    image: string[];
-    inStock: number;
+    image: any;
+    inStock?: number;
     price: number;
-    sizes: ISizes[];
-    slug: string;
-    tags: string[];
+    sizes?: ISizes[];
+    slug?: string;
+    tags?: string[];
     title: string;
-    type: ITypes;
+    type?: ITypes;
 }
 
 export type ISizes = |'S'|'M'|'L'|'XL';

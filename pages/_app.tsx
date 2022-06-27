@@ -6,14 +6,14 @@ import { ShopProvider } from '../context/shopContext'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
   <>
-  <ShopProvider>
+  {/* <ShopProvider> */}
 
     <Navbar />
     <div className='pt-20'>
       <Component {...pageProps} />
 
     </div>
-  </ShopProvider>
+  {/* </ShopProvider> */}
   </>
   
   )
