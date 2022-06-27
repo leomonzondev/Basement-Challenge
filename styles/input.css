@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "./fonts/basement-grotesque.css";
+
+html,
+body,
+#__next {
+  height: 100%;
+  background: black;
+  color: white;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: 'Basement Grotesque', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.scrolling {
+  
+  animation: scrolling 25s linear infinite;
+  user-select: none;
+}
+
+@keyframes scrolling {
+  0% { transform: translateX(0);}
+  100% { transform: translateX(-100%);}
+}
