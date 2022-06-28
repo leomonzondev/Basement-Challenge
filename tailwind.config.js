@@ -3,6 +3,9 @@ module.exports = {
   content: ["./pages/**/*.tsx", "./src/**/*.tsx"],
   theme: {
     extend: {
+      fontFamily: {
+        'basement': ['Basement Grotesque', '-apple-system',  'Roboto', 'Helvetica Neue', 'sans-serif'] 
+      },
       animation: {
         marquee: 'marquee 25s linear infinite',
         marquee2: 'marquee2 25s linear infinite',

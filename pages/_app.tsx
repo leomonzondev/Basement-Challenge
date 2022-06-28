@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   {/* <ShopProvider> */}
 
     <Navbar />
-    <div className='pt-20'>
+    <div className='pt-20 font-basement'>
       <Component {...pageProps} />
 
     </div>

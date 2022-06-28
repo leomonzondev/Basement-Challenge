@@ -6,7 +6,7 @@ import { IProduct } from '../interfaces/products';
 
 export const Products = () => {
   return (
-    <div className='flex gap-10 py-20'>
+    <div className='flex flex-wrap md:flex-nowrap gap-10 md:py-20'>
         {
             shop.map(product => <div key={product._id}>
                 <ProductCard product={product} />
