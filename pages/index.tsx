@@ -22,15 +22,17 @@ const Home: NextPage = () => {
   },[])
 
   return (
-    <div className='px-4 overflow-hidden '>
+    <div className='overflow-hidden '>
       <Head>
         <title>Basement Challenge</title>
         <meta name="description" content="Leonardo Monzón" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
-      <div className='w-full relative md:h-[500px]  h-36 flex justify-center items-center '>
-        <Image src={header} layout='fill'  />
+      <div className='px-4 '>
+        <div className='w-full relative md:h-[500px]  h-36 flex justify-center items-center '>
+          <Image src={header} layout='fill'  />
+        </div>
+
       </div>
 
     <div className='w-full '>
@@ -40,8 +42,8 @@ const Home: NextPage = () => {
         <Products />
 
 
-      <section className='flex w-full justify-end sticky'>
-        <div className=' w-full h-[500px] relative right-0 -mr-56 '>
+      <section className='px-4 flex w-full justify-end sticky'>
+        <div className=' w-full h-36 md:h-[500px] relative right-0 md:-mr-56 '>
           <Image src={footer} layout='fill' />
         </div>
       </section>

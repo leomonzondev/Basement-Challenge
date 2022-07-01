@@ -4,7 +4,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'basement': ['Basement Grotesque', '-apple-system',  'Roboto', 'Helvetica Neue', 'sans-serif'] 
+        basement: ['basement', 'Helvetica Neue'] 
+      },
+      colors: {
+        'white': '#ffffff',
+        'gray': {
+          100:'#1D1D1D',
+          200: '#999999'
+        },
+        'red': 'red',
+        'black': 'black'
       },
       animation: {
         marquee: 'marquee 25s linear infinite',

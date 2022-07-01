@@ -1,6 +1,6 @@
-import tshirt from '../public/products/shirt.png'
-import cap from '../public/products/cap.png'
-import hoodie from '../public/products/hoodie.png'
+import tshirt from '../../public/products/shirt.png'
+import cap from '../../public/products/cap.png'
+import hoodie from '../../public/products/hoodie.png'
 
 export const shop = [
     {

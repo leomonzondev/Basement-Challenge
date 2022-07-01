@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./fonts/basement-grotesque.css";
+
 
 html,
 body,
@@ -25,6 +25,47 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Basement Grotesque';
+  src: url('./fonts/basement-grotesqueRegularRegular.woff2') format('woff2'),
+      url('./fonts/basement-grotesqueRegularRegular.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: white;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: black;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: black;
+  }
+}
+
+
+
+.btn-size {
+  @apply text-xl md:text-3xl text-center w-9 h-9 md:w-12 md:h-12 hover:border-2 hover:rounded-full focus:border-2 focus:rounded-full;
+}
+
+.btn-quantity {
+  @apply text-xl md:text-3xl 
+}
+
 
 .scrolling {
   
