@@ -6,6 +6,9 @@ import footer from '../src/assets/footer.svg'
 import { Slider } from '../src/components/Slider'
 import { useEffect } from 'react'
 import { Products } from '../src/components/Products'
+import { Vectors } from '../src/components/vectors'
+import vector1 from '../src/assets/Vector.png'
+import vector2 from '../src/assets/Vector2.png'
 
 const Home: NextPage = () => {
 
@@ -22,37 +25,38 @@ const Home: NextPage = () => {
   },[])
 
   return (
-    <div className='overflow-hidden '>
+    <div className='overflow-hidden  '>
       <Head>
         <title>Basement Challenge</title>
         <meta name="description" content="Leonardo Monzón" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='px-4 '>
-        <div className='w-full relative md:h-[500px]  h-36 flex justify-center items-center '>
+
+      <div className='pt-[5.5rem] md:px-4'>
+        <div className='w-full relative md:h-[550px] flex flex-col items-center leading-[18rem]  h-36  '>
+          {/* <h1 className='text-[22rem] font-extrabold font- text-center'>BASEMENT<br/><span className={`stroke text-black`}>SUPPLY</span></h1> */}
+
           <Image src={header} layout='fill'  />
         </div>
-
       </div>
 
-    <div className='w-full '>
+     
+      {/* <div className=''>
+        <Vectors src={vector1} />
+        <Vectors src={vector2} />
+      </div> */}
+
+    <div className='w-full'>
       <Slider />
     </div>
-  
-        <Products />
 
+      <Products />
 
       <section className='px-4 flex w-full justify-end sticky'>
         <div className=' w-full h-36 md:h-[500px] relative right-0 md:-mr-56 '>
           <Image src={footer} layout='fill' />
         </div>
       </section>
-
-      {/* <footer className='absolute z-10'>
-      <div className='w-full relative h-[1200px] flex justify-center'>
-        <Image src={header}  />
-      </div>
-      </footer> */}
     </div>
   )
 }

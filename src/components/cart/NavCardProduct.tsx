@@ -1,18 +1,17 @@
 import Image from 'next/image'
 import React, { useContext, useEffect } from 'react'
 
-import tshirt from '../../../public/products/shirt.png'
 import { IProduct } from '../../interfaces/products';
 import { ShopContext } from '../../context/shopContext';
 import { TYPES } from '../../context/shopReducer';
-
-
 
 type productType = {
     product: IProduct,
 }
 
 export const NavCardProduct = ({ product }:productType) => {
+
+    const sizes = ['S','M','L','XL']
 
     const { state, dispatch } = useContext(ShopContext)
 
@@ -21,7 +20,6 @@ export const NavCardProduct = ({ product }:productType) => {
     }
 
 //Hnadle Qty to dispatch if subs action subs if plus plus action
-
     const handleQuantity = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const {name} = e.target as HTMLInputElement
         e.preventDefault()
@@ -32,15 +30,7 @@ export const NavCardProduct = ({ product }:productType) => {
         if (name === 'plus' && product.quantity < 20) {
             dispatch({type:TYPES.CART_ADD, product: { ...product, quantity: product.quantity + 1}})
         }
-        
-
     }
-
-    // useEffect(() => {
-    //     setTotalPrice(totalPrice + (product.price * product.quantity))
-
-    // },[product.quantity])
-
 
 
   return (
@@ -50,17 +40,15 @@ export const NavCardProduct = ({ product }:productType) => {
                 {
                     product.image?.src ? <Image src={product.image.src} width={280} height={320}  /> : ""
                 }
-                
-                
             </div>
         </div>
         <div className='flex justify-between flex-col  w-full'>
             <div className='pt-2'>
                 <div className='flex justify-between'>
                     <h1 className='md:font-extrabold text-2xl md:text-5xl'>{product.title}</h1>
-                    <button className='md:text-3xl md:font-extrabold pr-5' onClick={handleRemove}>X</button>
+                    <button className='md:text-3xl cursor-crosshair  md:font-extrabold pr-5 hover:text-orange transition-all duration-200' onClick={handleRemove}>X</button>
                 </div>
-                <h2 className='md:font-extrabold text-lg md:text-4xl text-gray-500'>{product.description}</h2>
+                <h2 className='md:font-extrabold text-lg md:text-3xl text-gray-200'>{product.description}</h2>
             </div>
 
             <div className='flex items-center gap-4'>
@@ -75,22 +63,25 @@ export const NavCardProduct = ({ product }:productType) => {
             <div className='flex items-center justify-between flex-wrap md:flex-nowrap'>
                 <div className='flex gap-2 font-extrabold items-center'>
                     <h2 className=' text-xl md:text-3xl'>SIZE:</h2>
-                    <div className='flex justify-around md:w-48'>
-                        
-                        <button className='btn-size'>S</button>
-                        <button className='btn-size'>M</button>
-                        <button className='btn-size'>L</button>
-                        <button className='btn-size'>XL</button>
-                      
+                    <div className='flex  '>
+                        {sizes.map((size) => [
+                        <input
+                            key={`input-${size}`}
+                            type="radio"
+                            className='hidden peer'
+                            name="value"
+                        />,
+                            <label  className='text-2xl flex items-center justify-center md:text-3xl text-center w-9 h-9 md:w-12 md:h-12 white hover:outline-1 hover:outline hover:rounded-full active:rounded-full focus:outline-2 focus:outline focus:outline-white peer-active:bg-red '>
+                            {size}
+                        </label>
+                            ])}
+                 
                     </div>
                 </div>
                 <div className='font-bold text-xl md:text-5xl md:p-5'>${product.price * product.quantity}</div>
             </div>
 
         </div>
-
-
-
     </div>
   )
 }

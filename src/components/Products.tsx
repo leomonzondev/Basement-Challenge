@@ -4,21 +4,7 @@ import { shop } from '../services/data'
 import { ProductCard } from './ProductCard'
 
 
-type alreadyHaveState = {
-
-  
-}
-
-
 export const Products = () => {
-
-  const { state } = useContext(ShopContext)
-
-
-
-
-
-
 
   return (
     <div className='flex px-4 flex-wrap md:flex-nowrap gap-10 md:py-20'>

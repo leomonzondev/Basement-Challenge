@@ -8,11 +8,8 @@ import { TYPES } from '../context/shopReducer';
 import world from '../assets/VectorWorld.svg'
 import buyme from '../assets/BUY ME.svg'
 
-import { MdCheckCircle } from 'react-icons/md'
-
 interface Props {
     product: IProduct;
-
 }
 
 export const ProductCard: FC<Props> = ({ product }) => {
@@ -35,7 +32,6 @@ export const ProductCard: FC<Props> = ({ product }) => {
 
 
     useEffect(() => {
-
         if(state.cart.find(p => p._id === product._id)){
             setAlreadyHave(true)
             return
@@ -44,20 +40,15 @@ export const ProductCard: FC<Props> = ({ product }) => {
             setAlreadyHave(false)
             setShow(false)
         }
-
-
     },[state.cart])
     
 
-
-    const already = 'You already have this product in your cart'
-
   return (
-    <div className={`${alreadyHave ? "cursor-default" : "cursor-pointer "} `} onMouseEnter={() => `${ alreadyHave ? null : setShow(true)}`} onMouseLeave={() => `${alreadyHave ? null : setShow(false)}`} >
+    <div className={''} onMouseEnter={() => `${ alreadyHave ? null : setShow(true)}`} onMouseLeave={() => `${alreadyHave ? null : setShow(false)}`} >
 
         
-        <div className='border-b-4 relative flex justify-center border-white bg-gradient-to-t  from-gray select-none'>
-        <div className='flex h-full w-full absolute items-center  '>
+        <div className='border-b-4 relative flex justify-center border-white bg-gradient-to-t  from-gray-100 select-none'>
+        <div className='flex h-full w-full absolute items-center'>
             {
                 show
                 ? <div className=' z-10 bg-black/40 h-full w-full flex justify-center ' onClick={handleBuy}><Image src={alreadyHave ? buyme : world}/></div>
@@ -67,7 +58,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
         <Image src={product.image} />
 
         </div>
-        <div className='flex justify-between text-3xl font-bold'>
+        <div className='flex justify-between text-3xl font-bold pt-2' >
             <h1 className=''>{ product.title }</h1>
             <p>${ product.price }</p>
         </div>

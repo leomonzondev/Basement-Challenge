@@ -11,15 +11,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       vertical: "bottom",
       horizontal: "right"
     }}>
-    <ShopProvider>
-      <Navbar />
-        <div className='pt-20 '>
-          <Component {...pageProps} />
-        </div>
-    </ShopProvider>
-      </SnackbarProvider>
+      <ShopProvider>
+        <Navbar />
+          <div className=' cursor-crosshair'>
+            <Component {...pageProps} />
+          </div>
+      </ShopProvider>
+    </SnackbarProvider>
   </>
-  
   )
 }
 

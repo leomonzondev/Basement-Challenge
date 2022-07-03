@@ -13,20 +13,16 @@ module.exports = {
           200: '#999999'
         },
         'red': 'red',
-        'black': 'black'
+        'black': 'black',
+        'orange': '#ff4c00'
       },
       animation: {
-        marquee: 'marquee 25s linear infinite',
-        marquee2: 'marquee2 25s linear infinite',
+        marquee: 'marquee 60s linear infinite',
       },
       keyframes: {
         marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-100%)' },
-        },
-        marquee2: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0%)' },
+          'from': { transform: 'translateX(0%)' },
+          'to': { transform: 'translateX(-50%)' },
         },
       },
   

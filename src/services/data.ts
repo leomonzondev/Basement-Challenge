@@ -13,14 +13,14 @@ export const shop = [
     {
         _id:2,
         title:'Black Hoodie',
-        description: "Unisex Basic Softstyle T-Shirt",
+        description: "Black Over The Head Hood",
         price:13,
         image: hoodie
     },
     {
         _id:3,
         title:'Black cap',
-        description: "Unisex Basic Softstyle T-Shirt",
+        description: "Basement cap",
         price:23,
         image: cap
     },

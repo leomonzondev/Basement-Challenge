@@ -8,56 +8,49 @@ import close from '../../assets/Close.svg'
 import checkout from '../../assets/checkout.svg'
 import Mcheckout from '../../assets/Mcheckout.svg'
 import { ShopContext } from '../../context/shopContext';
-import { IProduct } from '../../interfaces/products';
 import StripeCheckout from 'react-stripe-checkout';
-
-
 
 type setShowCart = {
   handleShow:React.MouseEventHandler<HTMLDivElement>;
-
+  showCart:boolean;
 }
 
-export const Cart = ({handleShow}: setShowCart) => {
+export const Cart = ({handleShow, showCart}: setShowCart) => {
 
+  const { state } = useContext(ShopContext)
 
-  const { state, dispatch } = useContext(ShopContext)
-
-
- const totalPrice = state.cart.reduce((a,b) => a + b.quantity * b.price, 0)
-
+  const totalPrice = state.cart.reduce((a,b) => a + b.quantity * b.price, 0)
 
 //stripe communication with the back
   const payNow = async() => {
-
     try {
    
     } catch (error) {
       
     }
-
   }
 
-
-  return (<div className=''>
-    <div className='absolute w-full md:w-[55%]  bg-black md:border-2 md:h-[800px] md:min-h-[800px]  max-h-screen overflow-y-auto md:scrollbar right-0 top-0 '>
-      <div className='w-full flex justify-end px-8 py-8'>
-        <div className='cursor-pointer ' onClick={handleShow}><Image src={close} /></div>
+  return (<div className={` ${showCart ? "translate-x-0" : "translate-x-full"} ease-in-out duration-300 ` }>
+    <div className={` absolute w-full md:w-[50%] 
+    bg-black md:border-2 md:min-h-[600px]
+    max-h-screen overflow-y-auto md:scrollbar right-0 top-0
+    `}>
+      <div className={`w-full flex justify-end px-8 py-8  `}>
+        <div className=' ' onClick={handleShow}><p className='text-3xl font-bold hover:text-orange transition-all duration-200'>→ CLOSE</p></div>
       </div>
-
         <div className='pb-10'>
           <div className='hidden md:block  relative  md:h-28 '><Image src={Lyourcart} layout="fill" /></div>
           <div className=' block md:hidden  relative h-52 md:h-28 '><Image src={Myourcart} layout="fill" /></div>
         </div>
-
-        
 
         <div className='px-2 md:px-8 flex flex-col gap-2'>
           {
             state.cart.map(p => <div key={p._id}><NavCardProduct product={p}/></div>)
           }
         </div>
-{        (state.cart.length <= 0) && <p className='text-center md:text-3xl pt-48'>{`Add products :)`}</p>}
+            {
+              (state.cart.length <= 0) && <p className='text-center md:text-3xl pt-20'>{`Add products :)`}</p>
+            }
         <div className=''>
           {
             state.cart.length > 0 &&
@@ -83,11 +76,8 @@ export const Cart = ({handleShow}: setShowCart) => {
               </div>
           </div>
           }
-
         </div>
-
-    </div>
-  
+    </div>  
   </div>
   )
 }
