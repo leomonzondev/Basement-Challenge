@@ -6,9 +6,9 @@ import footer from '../src/assets/footer.svg'
 import { Slider } from '../src/components/Slider'
 import { useEffect } from 'react'
 import { Products } from '../src/components/Products'
-import { Vectors } from '../src/components/vectors'
-import vector1 from '../src/assets/Vector.png'
-import vector2 from '../src/assets/Vector2.png'
+// import { Vectors } from '../src/components/vectors'
+// import vector1 from '../src/assets/Vector.png'
+// import vector2 from '../src/assets/Vector2.png'
 
 const Home: NextPage = () => {
 

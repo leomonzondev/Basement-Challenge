@@ -18,12 +18,12 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: black;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: black;
+  background: #f1f1f1;
 }
 
 /* Handle on hover */
@@ -40,9 +40,9 @@ body,
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: 'Basement Grotesque', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-
+  font-family: "Basement Grotesque", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
 }
 
 a {
@@ -55,13 +55,15 @@ a {
 }
 
 .stroke {
-  text-shadow: 2px 0 0 var(white), -2px 0 0 var(white), 0 2px 0 var(white), 0 -2px 0 var(white), 1px 1px var(white), -1px -1px 0 var(white), 1px -1px 0 var(white), -1px 1px 0 var(white);
+  text-shadow: 2px 0 0 var(white), -2px 0 0 var(white), 0 2px 0 var(white),
+    0 -2px 0 var(white), 1px 1px var(white), -1px -1px 0 var(white),
+    1px -1px 0 var(white), -1px 1px 0 var(white);
 }
 
 @font-face {
-  font-family: 'Basement Grotesque';
-  src: url('./fonts/basement-grotesqueRegularRegular.woff2') format('woff2'),
-      url('./fonts/basement-grotesqueRegularRegular.woff') format('woff');
+  font-family: "Basement Grotesque";
+  src: url("./fonts/basement-grotesqueRegularRegular.woff2") format("woff2"),
+    url("./fonts/basement-grotesqueRegularRegular.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -72,8 +74,6 @@ a {
     font-display: block;
     src: url('/fonts/grotesque/BasementGrotesque-Black.woff2') format('woff2');
 } ; */
-
-
 
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
@@ -95,19 +95,20 @@ a {
   }
 }
 
-
 .btn-quantity {
-  @apply text-xl md:text-3xl 
+  @apply text-xl md:text-3xl;
 }
 
-
 .scrolling {
-  
   animation: scrolling 25s linear infinite;
   user-select: none;
 }
 
 @keyframes scrolling {
-  0% { transform: translateX(0);}
-  100% { transform: translateX(-100%);}
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
