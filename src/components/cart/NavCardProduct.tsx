@@ -42,10 +42,8 @@ export const NavCardProduct = ({ product }: productType) => {
     <div className="flex border-2 border-solid border-white ">
       <div className="md:px-4 px-2 md:pt-4 md:pb-6">
         <div className="flex  justify-center items-center bg-gradient-to-t  from-gray-100  select-none md:px-4">
-          {product.image?.src ? (
+          {product.image?.src && (
             <Image src={product.image.src} width={280} height={320} />
-          ) : (
-            ""
           )}
         </div>
       </div>
@@ -92,10 +90,11 @@ export const NavCardProduct = ({ product }: productType) => {
           <div className="flex gap-2 font-extrabold items-center">
             <h2 className=" text-xl md:text-3xl">SIZE:</h2>
             <form className="flex  ">
-              {sizes.map((size) => {
+              {sizes.map((size, i) => {
                 const id = Math.random();
                 return [
                   <label
+                    key={id}
                     htmlFor={size + id}
                     className="h-full cursor-pointer select-none"
                   >

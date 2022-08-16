@@ -39,19 +39,22 @@ export const Cart = ({ handleShow, showCart }: setShowCart) => {
     `}
       >
         <div className={`w-full flex justify-end px-8 py-8  `}>
-          <div className=" " onClick={handleShow}>
-            <p className="text-3xl font-bold hover:text-orange transition-all duration-200">
-              → CLOSE
-            </p>
-          </div>
+          <p
+            onClick={handleShow}
+            className="text-3xl leading-3 font-bold hover:text-orange transition-all duration-200"
+          >
+            → CLOSE
+          </p>
         </div>
-        <div className="pb-10">
-          <div className="hidden md:block  relative  md:h-28 ">
-            <Image src={Lyourcart} layout="fill" />
-          </div>
-          <div className=" block md:hidden  relative h-52 md:h-28 ">
-            <Image src={Myourcart} layout="fill" />
-          </div>
+
+        <div className="hidden md:block  relative text-center ">
+          <h1 className="uppercase text-white text-[8.3rem]  leading-10 py-16 ">
+            YOUR <span className="stroke text-black ">CART</span>
+          </h1>
+          {/* <Image src={Lyourcart} layout="fill" /> */}
+        </div>
+        <div className=" block md:hidden  relative h-52 md:h-28 ">
+          <Image src={Myourcart} layout="fill" />
         </div>
 
         <div className="px-2 md:px-8 flex flex-col gap-2">

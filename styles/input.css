@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Basement Grotesque";
+  src: url("./fonts/BasementGrotesque-Black_v1.woff2") format("woff2"),
+    url("./fonts/BasementGrotesque-Black_v1.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Basement Regular";
+  src: url("./fonts/basement-grotesqueRegularRegular.woff2") format("woff2"),
+    url("./fonts/basement-grotesqueRegularRegular.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: white;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: black;
+    border: 3px solid #f6f7ed;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: black;
+  }
+}
+
 :root {
   --orange: #ff4c00;
 }
@@ -55,18 +93,8 @@ a {
 }
 
 .stroke {
-  text-shadow: 2px 0 0 var(white), -2px 0 0 var(white), 0 2px 0 var(white),
-    0 -2px 0 var(white), 1px 1px var(white), -1px -1px 0 var(white),
-    1px -1px 0 var(white), -1px 1px 0 var(white);
-}
-
-@font-face {
-  font-family: "Basement Grotesque";
-  src: url("./fonts/basement-grotesqueRegularRegular.woff2") format("woff2"),
-    url("./fonts/basement-grotesqueRegularRegular.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+  text-shadow: 1.7px 1.7px 0px #fff, -1.7px -1.7px 0px #fff,
+    1.7px -1.7px 0px #fff, -1.7px 1.7px 0px #fff;
 }
 
 /* @font-face {
@@ -74,26 +102,6 @@ a {
     font-display: block;
     src: url('/fonts/grotesque/BasementGrotesque-Black.woff2') format('woff2');
 } ; */
-
-@layer utilities {
-  .scrollbar::-webkit-scrollbar {
-    width: 20px;
-    height: 20px;
-  }
-
-  .scrollbar::-webkit-scrollbar-track {
-    background: white;
-  }
-
-  .scrollbar::-webkit-scrollbar-thumb {
-    background: black;
-    border: 3px solid #f6f7ed;
-  }
-
-  .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: black;
-  }
-}
 
 .btn-quantity {
   @apply text-xl md:text-3xl;
