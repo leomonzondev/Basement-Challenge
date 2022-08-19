@@ -18,15 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     setShowCart(!showCart);
   };
 
-  const handleBuy = () => {
-    setBought(!bought);
-    setShowCart(false);
-    dispatch({ type: TYPES.CART_ADD, product: {} });
-  };
-
   const navProps = {
-    handleBuy,
     setShowCart,
+    setBought,
     showCart,
     handleShow,
   };

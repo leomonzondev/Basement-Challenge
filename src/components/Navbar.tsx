@@ -8,21 +8,31 @@ import Lbasement from "../assets/Lbasement.svg";
 import { Cart } from "./cart/Cart";
 import { ShopContext } from "../context/shopContext";
 import { Bought } from "./cart/Bought";
+import { TYPES } from "../context/shopReducer";
 
 type navProps = {
   handleBuy: () => void;
   setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
   showCart: boolean;
   handleShow: () => void;
+  setBought: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const Navbar = ({
-  handleBuy,
   setShowCart,
   showCart,
   handleShow,
+  setBought,
 }: navProps) => {
   const { state } = useContext(ShopContext);
+
+  const { dispatch } = useContext(ShopContext);
+
+  const handleBuy = () => {
+    setShowCart(false);
+    setBought(true);
+    dispatch({ type: TYPES.CART_CLEAR });
+  };
 
   const totalProducts = state.cart.reduce((a, b) => a + b.quantity, 0);
 
