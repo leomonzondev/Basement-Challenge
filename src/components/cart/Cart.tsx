@@ -9,22 +9,18 @@ import checkout from "../../assets/checkout.svg";
 import Mcheckout from "../../assets/Mcheckout.svg";
 import { ShopContext } from "../../context/shopContext";
 import StripeCheckout from "react-stripe-checkout";
+import { Bought } from "./Bought";
 
-type setShowCart = {
+type CartProps = {
   handleShow: React.MouseEventHandler<HTMLDivElement>;
   showCart: boolean;
+  handleBuy: () => void;
 };
 
-export const Cart = ({ handleShow, showCart }: setShowCart) => {
+export const Cart = ({ handleShow, showCart, handleBuy }: CartProps) => {
   const { state } = useContext(ShopContext);
 
   const totalPrice = state.cart.reduce((a, b) => a + b.quantity * b.price, 0);
-
-  //stripe communication with the back
-  const payNow = async () => {
-    try {
-    } catch (error) {}
-  };
 
   return (
     <div
@@ -74,13 +70,13 @@ export const Cart = ({ handleShow, showCart }: setShowCart) => {
                 TOTAL: <span className="text-end">${totalPrice}</span>
               </p>
               <div className=" h-40 md:h-0 w-full flex justify-center md:justify-end">
-                <button className="font-extrabold bg-black md:text-5xl pointer-events-none z-50 absolute hidden md:block">
-                  <Image src={checkout} />
+                <button
+                  onClick={handleBuy}
+                  className=" bg-black md:text-5xl z-50 absolute tracking-widest"
+                >
+                  <p className="stroke text-black">CHECKOUT</p>
                 </button>
-                <button className="font-extrabold bg-black md:text-5xl pointer-events-none z-50 absolute md:hidden block">
-                  <Image src={Mcheckout} width={400} height={80} />
-                </button>
-                <div className="mr-16">
+                {/* <div className="mr-16">
                   <StripeCheckout
                     stripeKey="pk_test_51Ji5BCKm6U4hABrlan8TDlvZF2TUtkfTC4HrcaBmC6ZkJgpHs7YYeKDfvroKNGlWGpojjNhptGtyau1wkht6vtan003JsnVbGP"
                     label="CHECKOUT"
@@ -91,7 +87,7 @@ export const Cart = ({ handleShow, showCart }: setShowCart) => {
                     description={`Your total is, ${totalPrice}`}
                     token={payNow}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           )}

@@ -7,15 +7,22 @@ import Sbasement from "../assets/Sbasement.svg";
 import Lbasement from "../assets/Lbasement.svg";
 import { Cart } from "./cart/Cart";
 import { ShopContext } from "../context/shopContext";
+import { Bought } from "./cart/Bought";
 
-export const Navbar = () => {
-  const [showCart, setShowCart] = useState<boolean>(false);
+type navProps = {
+  handleBuy: () => void;
+  setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
+  showCart: boolean;
+  handleShow: () => void;
+};
 
+export const Navbar = ({
+  handleBuy,
+  setShowCart,
+  showCart,
+  handleShow,
+}: navProps) => {
   const { state } = useContext(ShopContext);
-
-  const handleShow = () => {
-    setShowCart(!showCart);
-  };
 
   const totalProducts = state.cart.reduce((a, b) => a + b.quantity, 0);
 
@@ -45,7 +52,11 @@ export const Navbar = () => {
         </button>
         {showCart ? (
           <div className="absolute w-full h-screen bg-black/80 top-[0rem] right-[.02rem]">
-            <Cart handleShow={handleShow} showCart={showCart} />
+            <Cart
+              handleShow={handleShow}
+              showCart={showCart}
+              handleBuy={handleBuy}
+            />
           </div>
         ) : (
           ""
